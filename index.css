@@ -12,7 +12,8 @@ button {
   color: black;
   border: 2px solid white;
   font-size: 1.3em;
-  padding: 0.2em;
+  padding: 0.2em 0.5em;
+  border-radius: 2em;
 }
 
 button:active {
@@ -26,6 +27,7 @@ button:active {
   height: 25em;
   background-color: rgb(50, 50, 50);
   padding: 2em;
+  border-radius: 2em;
 }
 
 .main-content-header button {
@@ -43,14 +45,13 @@ button:active {
 
 .main-content-header .correct-number {
   height: 4em;
-  position: relative;
+  border-radius: 2em;
 }
 
 .correct-number .line {
   margin-top: 2em;
   height: 10%;
   background-color: white;
-  position: relative;
 }
 
 .correct-number h2 {
@@ -58,9 +59,10 @@ button:active {
   background-color: white;
   color: black;
   text-align: center;
-  padding: 0.3em 1em;
+  padding: 0.5em 1.4em;
   position: relative;
-  top: -1.8em;
+  top: -2em;
+  border-radius: 1em;
 }
 
 .game-entries {
@@ -81,11 +83,12 @@ button:active {
   text-align: center;
   color: white;
   font-size: 2em;
+  border-radius: 2em;
 }
 
 .game-entries button {
   margin-top: 1.2em;
-  width: 60%;
+  width: 58%;
   font-size: 1.3em;
 }
 
