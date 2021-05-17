@@ -4,9 +4,34 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link href="./index.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Guess My Number</title>
   </head>
   <body>
-    <h1>Hello</h1>
+    <div class="main-content">
+      <header class="main-content-header">
+        <button class="button">Again!</button>
+        <h3>(Between 1 and 20)</h3>
+        <h1>Guess My Number!</h1>
+        <div class="correct-number">
+          <div class="line"></div>
+          <h2>?</h2>
+        </div>
+      </header>
+      <main class="main-content-game">
+        <section class="game-play">
+          <div class="game-entries">
+            <input type="number" />
+            <button class="button">check!</button>
+          </div>
+          <div class="game-info">
+            <h3>Start guessing...</h3>
+            <p>Score: 20</p>
+            <p>Highscore: 0</p>
+          </div>
+        </section>
+      </main>
+    </div>
   </body>
 </html>
