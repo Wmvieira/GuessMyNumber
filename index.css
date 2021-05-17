@@ -52,6 +52,7 @@ button:active {
   margin-top: 2em;
   height: 10%;
   background-color: white;
+  border-radius: 2em;
 }
 
 .correct-number h2 {
@@ -101,10 +102,11 @@ button:active {
 
 .correct {
   animation: yes 2s ease-in-out;
+  background-color: rgb(75, 180, 116);
 }
 
 .wrong {
-  animation: no 1s ease-in-out;
+  animation: no 0.3s ease-in-out backwards;
 }
 
 @keyframes yes {
@@ -118,7 +120,7 @@ button:active {
     background-color: rgb(75, 180, 116);
   }
   100% {
-    background-color: rgb(80, 238, 140);
+    background-color: rgb(76, 141, 101);
   }
 }
 
@@ -133,7 +135,7 @@ button:active {
     background-color: rgb(180, 75, 75);
   }
   100% {
-    background-color: rgb(202, 65, 65);
+    background-color: rgb(141, 76, 76);
   }
 }
 
