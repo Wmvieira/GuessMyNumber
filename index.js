@@ -13,14 +13,17 @@ document.querySelector('.check').addEventListener('click', function () {
   let guess = inputGuess.value;
 
   if (guess == secretNumber) {
-    correctAws();
-    tips.textContent = 'Congratulations 🎆🎉✨';
+    correctAws(true);
     secretNum.textContent = guess;
   } else {
-    wrongAws();
-    score.textContent = `Score: ${--scoreValue}`;
-    if (guess > secretNumber) tips.textContent = 'Too High🥵';
-    if (guess < secretNumber) tips.textContent = 'Too Low🥶';
+    if (guess > secretNumber) {
+      tips.textContent = 'Too High🥵';
+      wrongAws('High');
+    }
+    if (guess < secretNumber) {
+      tips.textContent = 'Too Low🥶';
+      wrongAws('Low');
+    }
   }
 });
 
@@ -28,32 +31,38 @@ function createNumber() {
   return Math.trunc(Math.random() * 20) + 1;
 }
 
-function correctAws() {
+function correctAws(check) {
+  if (!check) {
+    body.classList.remove('correct');
+    main.classList.remove('correct');
+    inputGuess.classList.remove('correct');
+    tips.textContent = 'Start Guessing...';
+    return;
+  }
   body.classList.add('correct');
   main.classList.add('correct');
   inputGuess.classList.add('correct');
   if (highscoreValue < scoreValue) highscoreValue = scoreValue;
   highscore.textContent = `Highscore: ${highscoreValue}`;
+  tips.textContent = 'Congratulations 🎆🎉✨';
 }
 
-function wrongAws() {
-  body.classList.add('wrong');
-  main.classList.add('wrong');
-  inputGuess.classList.add('wrong');
+function wrongAws(className) {
+  body.classList.add(`wrong${className}`);
+  main.classList.add(`wrong${className}`);
+  inputGuess.classList.add(`wrong${className}`);
+  if (scoreValue > 0) score.textContent = `Score: ${--scoreValue}`;
+
   setTimeout(function () {
-    body.classList.remove('wrong');
-    main.classList.remove('wrong');
-    inputGuess.classList.remove('wrong');
+    body.classList.remove(`wrong${className}`);
+    main.classList.remove(`wrong${className}`);
+    inputGuess.classList.remove(`wrong${className}`);
   }, 1000);
 }
 
 document.querySelector('.again').addEventListener('click', function () {
-  body.classList.remove('correct');
-  main.classList.remove('correct');
-  inputGuess.classList.remove('correct');
   secretNumber = createNumber();
-  tips.textContent = 'Start Guessing...';
-
+  correctAws(false);
   scoreValue = 20;
   score.textContent = `Score: ${scoreValue}`;
   secretNum.textContent = '?';
